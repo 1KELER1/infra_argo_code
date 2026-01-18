@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fastapi-app
+  namespace: argocd
+spec:
+  project: default
+
+  sources:
+  - repoURL: https://github.com/1KELER1/CD_k8s
+    targetRevision: main
+    path: app/
+
+  - repoURL: https://github.com/1KELER1/infra_argo_code
+    targetRevision: main
+    path: k8s/
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
