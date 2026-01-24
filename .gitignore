@@ -140,3 +140,4 @@ personal-notes/
 .cache/
 
 plan.md
+terraform.tfstate
