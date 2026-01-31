@@ -15,3 +15,4 @@ spec:
                 name: fastapi
                 port:
                   number: 8000
+                namespace: lb
