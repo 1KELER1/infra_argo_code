@@ -4,6 +4,7 @@ metadata:
   name: fastapi
   namespace: lb
 spec:
+  progressDeadlineSeconds: 300
   replicas: 1
   selector:
     matchLabels:

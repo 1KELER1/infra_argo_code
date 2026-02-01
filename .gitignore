@@ -141,3 +141,5 @@ personal-notes/
 
 plan.md
 terraform.tfstate
+
+.terraform.lock.hcl

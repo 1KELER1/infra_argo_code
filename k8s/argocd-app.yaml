@@ -7,17 +7,19 @@ spec:
   project: default
 
   sources:
-  - repoURL: https://github.com/1KELER1/CD_k8s
-    targetRevision: main
-    path: app/
+    - repoURL: https://github.com/1KELER1/infra_argo_code
+      targetRevision: main
+      path: k8s/
+      name: manifests
 
-  - repoURL: https://github.com/1KELER1/infra_argo_code
-    targetRevision: main
-    path: k8s/
+    - repoURL: https://github.com/1KELER1/CD_k8s
+      targetRevision: main
+      path: app/
+      name: app-code
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: lb
 
   syncPolicy:
     automated:
