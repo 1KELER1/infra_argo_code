@@ -3,11 +3,6 @@ kind: Application
 metadata:
   name: fastapi-app
   namespace: argocd
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: fastapi=ghcr.io/1keler1/cd_k8s
-    argocd-image-updater.argoproj.io/fastapi.update-strategy: latest
-    argocd-image-updater.argoproj.io/fastapi.write-back-method: git
-    argocd-image-updater.argoproj.io/fastapi.write-back-target: branch:main
 spec:
   project: default
 
@@ -15,6 +10,7 @@ spec:
     repoURL: https://github.com/1KELER1/infra_argo_code
     targetRevision: main
     path: k8s/
+    kustomize: {}
 
   destination:
     server: https://kubernetes.default.svc
