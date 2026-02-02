@@ -3,6 +3,11 @@ kind: Application
 metadata:
   name: fastapi-app
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: fastapi=ghcr.io/1keler1/cd_k8s
+    argocd-image-updater.argoproj.io/fastapi.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
 spec:
   project: default
 
