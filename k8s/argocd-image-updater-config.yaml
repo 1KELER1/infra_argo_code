@@ -12,6 +12,11 @@ data:
         prefix: ghcr.io/1keler1
         credentials: pullsecret:argocd/ghcr-secret
   config.yaml: |
+    writeBack:
+      method: git
+      gitRepo: https://github.com/1KELER1/infra_argo_code.git
+      gitBranch: main
+      credentials: secret:argocd/ghcr-secret#token
     applications:
       fastapi-app:
         images:
