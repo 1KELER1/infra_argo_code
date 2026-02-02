@@ -6,7 +6,6 @@ resources:
   - service.yaml
   - ingress.yaml
   - Namespace.yaml
-  - service
   - viewer-cluster-role-binding.yaml
   - viewer-cluster-role.yaml
   - admin-role.yaml
