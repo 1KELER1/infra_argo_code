@@ -6,21 +6,15 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: fastapi=ghcr.io/1keler1/cd_k8s
     argocd-image-updater.argoproj.io/fastapi.update-strategy: latest
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/fastapi.write-back-method: git
+    argocd-image-updater.argoproj.io/fastapi.write-back-target: branch:main
 spec:
   project: default
 
-  sources:
-    - repoURL: https://github.com/1KELER1/infra_argo_code
-      targetRevision: main
-      path: k8s/
-      name: manifests
-
-    - repoURL: https://github.com/1KELER1/CD_k8s
-      targetRevision: main
-      path: app/
-      name: app-code
+  source:
+    repoURL: https://github.com/1KELER1/infra_argo_code
+    targetRevision: main
+    path: k8s/
 
   destination:
     server: https://kubernetes.default.svc
