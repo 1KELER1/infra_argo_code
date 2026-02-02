@@ -9,3 +9,8 @@ resources:
   - viewer-cluster-role-binding.yaml
   - viewer-cluster-role.yaml
   - admin-role.yaml
+
+images:
+  - name: fastapi # Имя из deployment.yaml
+    newName: ghcr.io/1keler1/cd_k8s # Полный путь к образу
+    newTag: latest # Image Updater обновит!
