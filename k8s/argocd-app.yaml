@@ -21,6 +21,5 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - Replace=true
       - PrunePropagationPolicy=foreground
       - Validate=true
