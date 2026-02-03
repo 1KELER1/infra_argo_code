@@ -10,10 +10,7 @@ spec:
     gitConfig:
       repository: "https://github.com/1KELER1/infra_argo_code.git"
       branch: "main"
-      credentials:
-        secretRef:
-          name: ghcr-secret
-          key: token
+      writeBackTarget: "kustomization"
   applicationRefs:
     - namePattern: fastapi-app
       images:
