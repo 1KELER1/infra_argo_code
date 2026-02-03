@@ -13,4 +13,4 @@ resources:
 images:
   - name: fastapi # Имя из deployment.yaml
     newName: ghcr.io/1keler1/cd_k8s # Полный путь к образу
-    newTag: "sha256:31b1207329e591d5228c991cc0cb633ad0ba71445be29b7729536663f5834fc2" # Image Updater обновит!
+    newTag: "0d9c7b1efa1c6e66bfc6de7291816050bf796094" # Image Updater обновит!
