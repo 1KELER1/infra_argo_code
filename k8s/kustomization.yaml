@@ -1,6 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
   - deployment.yaml
   - service.yaml
@@ -9,8 +8,8 @@ resources:
   - viewer-cluster-role-binding.yaml
   - viewer-cluster-role.yaml
   - admin-role.yaml
-
 images:
-  - name: fastapi # Имя из deployment.yaml
-    newName: ghcr.io/1keler1/cd_k8s # Полный путь к образу
-    newTag: "0d9c7b1efa1c6e66bfc6de7291816050bf796094" # Image Updater обновит!
+  - name: fastapi
+    newName: ghcr.io/1keler1/cd_k8s
+    newTag: latest
+    digest: sha256:b886f5f16033caaf35d90c62cf51f968eda0f0e0a5b3605fbcb8b9ebb92328d6
