@@ -15,9 +15,9 @@ spec:
     - namePattern: fastapi-app
       images:
         - alias: fastapi
-          imageName: ghcr.io/1keler1/cd_k8s:latest
+          imageName: ghcr.io/1keler1/cd_k8s
           commonUpdateSettings:
-            updateStrategy: newest-build
+            updateStrategy: digest # Обновляет по SHA/digest образа
           manifestTargets:
             kustomize:
               name: fastapi
