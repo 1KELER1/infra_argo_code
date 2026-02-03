@@ -1,0 +1,26 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: fastapi-updater
+  namespace: argocd
+spec:
+  namespace: argocd
+  writeBackConfig:
+    method: "git"
+    gitConfig:
+      repository: "https://github.com/1KELER1/infra_argo_code.git"
+      branch: "main"
+      credentials:
+        secretRef:
+          name: ghcr-secret
+          key: token
+  applicationRefs:
+    - namePattern: fastapi-app
+      images:
+        - alias: fastapi
+          imageName: ghcr.io/1keler1/cd_k8s:latest
+          commonUpdateSettings:
+            updateStrategy: newest-build
+          manifestTargets:
+            kustomize:
+              name: fastapi
