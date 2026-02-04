@@ -143,4 +143,3 @@ plan.md
 terraform.tfstate
 
 .terraform.lock.hcl
-.env2
