@@ -143,3 +143,6 @@ plan.md
 terraform.tfstate
 
 .terraform.lock.hcl
+.env2
+Makefile copy 2
+Makefile2.mk
