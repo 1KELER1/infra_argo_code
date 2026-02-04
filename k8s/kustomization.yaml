@@ -12,4 +12,4 @@ images:
   - name: fastapi
     newName: ghcr.io/1keler1/cd_k8s
     newTag: latest
-    digest: sha256:7243c5d2f1da7c4efea6cd998c6754612c75e215edf4cfac6ae28b2e5ddc3cad
+    digest: sha256:3222788f84742e9f69dee26f832233d40db8b1cdeb6800643ebabaaa803017b4
