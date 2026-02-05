@@ -1,0 +1,69 @@
+name: Kubernetes Lint & Validate
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "k8s/**"
+  push:
+    branches: [main]
+    paths:
+      - "k8s/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint YAML manifests
+        uses: ibiqlik/action-yamllint@v4
+        with:
+          file_or_dir: k8s/
+          config_data: |
+            extends: default
+            rules:
+              line-length: disable
+              truthy: disable
+              indentation:
+                spaces: 2
+
+  kubectl-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: "v1.30.0"
+
+      - name: Validate manifests
+        run: |
+          find k8s -name "*.yaml" | while read -r file; do
+            echo "Validating $file..."
+            kubectl apply -f "$file" \
+              --dry-run=client \
+              --dry-run=server \
+              -o yaml > /dev/null || exit 1
+          done
+
+  kube-score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run kube-score
+        run: |
+          echo " Running kube-score analysis..."
+          files=$(find k8s -name "*.yaml" | tr '\n' ' ')
+          if [ -z "$files" ]; then
+            echo "No YAML files found, skipping..."
+            exit 0
+          fi
+
+          docker run --rm -v ${{ github.workspace }}:/repo \
+            zegl/kube-score:master score $files || exit 1
