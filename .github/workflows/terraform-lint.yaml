@@ -2,8 +2,16 @@ name: Terraform Lint
 on:
   pull_request:
     branches: [main]
+    paths-ignore:
+      - ".github/**"
+      - ".git/**"
+      - "*.md"
   push:
     branches: [main]
+    paths-ignore:
+      - ".github/**"
+      - ".git/**"
+      - "*.md"
 
 jobs:
   tflint:
