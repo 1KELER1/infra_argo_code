@@ -9,7 +9,7 @@ data:
   registries.conf: |
     registries:
       - name: GHCR
-        api_url: https://ghcr.io 
+        api_url: https://ghcr.io
         prefix: ghcr.io/1keler1
         credentials: pullsecret:argocd/ghcr-secret
         ping: yes
