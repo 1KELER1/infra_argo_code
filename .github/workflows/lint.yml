@@ -2,10 +2,16 @@ name: Kubernetes Lint
 on:
   pull_request:
     branches: [main]
-    paths: ["k8s/**"]
+    paths-ignore:
+      - ".github/**"
+      - ".git/**"
+      - "*.md"
   push:
     branches: [main]
-    paths: ["k8s/**"]
+    paths-ignore:
+      - ".github/**"
+      - ".git/**"
+      - "*.md"
 
 jobs:
   yamllint:
