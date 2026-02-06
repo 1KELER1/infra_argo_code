@@ -5,7 +5,7 @@ metadata:
   namespace: lb
 spec:
   progressDeadlineSeconds: 300
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: fastapi
