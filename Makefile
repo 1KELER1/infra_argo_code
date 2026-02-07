@@ -90,3 +90,9 @@ port-forward:
 	kubectl port-forward deployment/$(DEPLOYMENT_NAME) 8000:8000 -n $(NAMESPACE)
 
 all_deploy: apply kubeconfig namespace namespace_secret argocd_install argocd_install_image_updater k8s_apply rollout_image_updater
+
+linter:
+	yamllint -c .yamllint.yml .
+	tflint --init
+	tflint --recursive
+

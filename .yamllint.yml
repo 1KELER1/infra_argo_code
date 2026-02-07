@@ -1,5 +1,10 @@
+---
 extends: default
+ignore: |
+  .github/
 rules:
   document-start: disable
   line-length: disable
   trailing-spaces: enable
+  comments:
+    min-spaces-from-content: 1
