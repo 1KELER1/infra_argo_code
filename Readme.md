@@ -17,12 +17,12 @@
 ## Переменные окружения (.env)
 - Файл .env подключается в Makefile. Примеры переменных с их правами:
     - DOCKER_USERNAME Логин гитхаба 
-    - GHCR_SECRET_LB  (repo read:packages)
+    - GHCR_SECRET_LB  (read:packages)
     - GHCR_SECRET_ARGOCD (repo read:packages write:packages)
     - GITHUB_REPO (repo read:packages write:packages)
 
 ## Токен для ранера в репозитории [CD_k8s](https://github.com/1KELER1/CD_k8s)
-PAT_TOKEN (repo,workflow)
+PAT_TOKEN ( delete:packages , repo , workflow , write:packages)
 
 ![alt text](image/image3.png)
 
